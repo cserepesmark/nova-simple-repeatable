@@ -1,10 +1,9 @@
 <template>
-  <PanelItem :index="index" :field="field" class="simple-repeatable detail-field">
+  <PanelItem :index="index" :field="field" :showLabel="false" class="simple-repeatable detail-field">
     <template #value>
       <div
         class="
-          nsr-overflow-hidden nsr-relative nsr-rounded-lg nsr-shadow nsr-border nsr-border-slate-200
-          dark:nsr-border-slate-600
+          nsr-overflow-hidden nsr-relative
           bg-white
           dark:nsr-bg-slate-800
         "
@@ -13,7 +12,7 @@
         <table class="nsr-table nsr-w-full nsr-table-default nova-resource-table">
           <thead>
             <tr class="nsr-border-b nsr-border-slate-200 dark:nsr-border-slate-600">
-              <th v-for="(header, i) in headers" :key="i">{{ header.name }}</th>
+              <th v-for="(header, i) in headers" :key="i" class="nsr-py-3">{{ header.name }}</th>
             </tr>
           </thead>
           <tbody>
@@ -22,13 +21,13 @@
               :key="i"
               class="
                 simple-repeatable-table-row
-                odd:nsr-bg-slate-50
+                nsr-border-b nsr-border-slate-100
                 hover:nsr-bg-slate-100
-                dark:odd:nsr-bg-slate-700 dark:hover:nsr-bg-slate-600
+
               "
             >
               <td
-                class="nsr-font-mono nsr-text-sm simple-repeatable-detail-field-wrapper"
+                class="nsr-text-sm simple-repeatable-detail-field-wrapper"
                 style="height: 2rem"
                 v-for="(rowField, j) in row.fields"
                 :key="j"
